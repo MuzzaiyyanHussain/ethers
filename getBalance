@@ -1,0 +1,15 @@
+const {ethers} = require("ethers");
+const provider = new ethers.providers.JsonRpcProvider(/*your INFURA API KEY */);
+const main = async () => {
+    try {
+    const balanceInWei = await provider.getBalance(/* Your etherium address starting with 0x...*/);
+    const balanceInEther = ethers.utils.formatEther(balanceInWei);
+    console.log("You are having the total balance of ", balanceInEther);
+    
+    } catch (error) {
+        console.log("Error while fetching the balance", error);
+        
+    }
+}
+
+main()
